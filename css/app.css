@@ -159,7 +159,7 @@ p,div {
 #statBtnGroup {
 	width: 90%;
 	left:  5%;
-	top: 10%;
+	margin-top: 5%;
 }
 #tablediv {
 	width: 100%;
@@ -167,6 +167,8 @@ p,div {
 }
 #table {
 	position: relative;
+	width: 90%;
+	margin-left: 5%;
 }
 #allbtn {
 	width: 25%;
