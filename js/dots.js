@@ -203,6 +203,7 @@ var dots = {
 	highWidth : null,
 	measureScore : null,
 	measureHigh : null,
+	audio: null,
 
 	// canvas
 	canvas : null,
@@ -243,6 +244,7 @@ dots.init = function() {
 
 	// game variables
 	dots.nextBubble = 120;
+	dots.audio = new Audio('button-3.wav');
 	dots.nextColor = Math.round(Math.random() * 3);
 	dots.scoreWidth = 0;
 	dots.highWidth = 0;
@@ -601,6 +603,7 @@ dots.player = function() {
 
 	this.update = function() {
 		if (dots.input.tapped) {
+			dots.audio.play();
 			if (this.vy > 10) {
 				this.vy = -13;
 			} else {

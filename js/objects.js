@@ -14,13 +14,14 @@ tr8, tr9, tr10, thN, thU, thS, trY, tdNY, tdUY, tdUS;
 var tdN1, tdU1, tdS1, tdN2, tdU2, tdS2, tdN3, tdU3, tdS3, 
 tdN4, tdU4, tdS4, tdN5, tdU5, tdS5, tdN6, tdU6, tdS6, tdN7, tdU7,
 tdS7, tdN8, tdU8, tdS8, tdN9, tdU9, tdS9, tdN10, tdU10, tdS10;
-var allBtn, dayBtn, weekBtn, monthBtn, statBtnGroup, tableDiv; backDiv;
-var audioId;
+var allBtn, dayBtn, weekBtn, monthBtn, statBtnGroup, tableDiv, backDiv;
+//var audioId;
 
 function createObjects() {
-	audioId = document.createElement("audio");
-	audioId.setAttribute("id", "audiotag1");
-	audioId.setAttribute()
+	//audioId = document.createElement("audio");
+	//audioId.setAttribute("id", "audiotag1");
+	//audioId.setAttribute("src", "www/button-3.wav");
+	//audioId.setAttribute("preload", "auto");
 	// Main Elements
 	body = document.getElementById("body");
 	
@@ -107,7 +108,7 @@ function createObjects() {
 	btnEditUsername.setAttribute("id", "btnEditUsername");
 	title.setAttribute("id", "title");
 	btnGroup.setAttribute("id", "btnGroup");
-	btnBack.setAttribute("id", "btnBack")
+	btnBack.setAttribute("id", "btnBack");
 	statBtnGroup.setAttribute("id", "statBtnGroup");
 	tableDiv.setAttribute("id", "tablediv");
 	table.setAttribute("id", "table");
@@ -242,6 +243,10 @@ function createObjects() {
 	tr10.appendChild(tdS10);
 	tableBody.appendChild(tr10);
 	
+	btnPlay.setAttribute("onclick", "playDots");
+	btnStats.setAttribute("onclick", "openStats()");
+	btnBack.setAttribute("onclick", "goBack()");
+	btnEditUsername.setAttribute("onClick", "editUsername");
 
 	btnPlay.setAttribute("onclick", "playDots()");
 	btnStats.setAttribute("onclick", "openStats()");
