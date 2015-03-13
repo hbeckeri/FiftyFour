@@ -28,8 +28,8 @@ function startDots() {
 	dots.init();
 }
 function stopDots() {
-	//Cocoon.Ad.showInterstitial();
-	
+	// Cocoon.Ad.showInterstitial();
+
 	var username = getCookie("username");
 	dots.gamesPlayed = getCookie("gamesPlayed");
 	dots.averageScore = getCookie("averageScore");
@@ -56,7 +56,7 @@ function stopDots() {
 	setCookie("highScore", dots.highScore.toString());
 	$('#pauseModal').modal('hide');
 	$('#gameOverModal').modal('hide');
-	
+
 	removeCanvas();
 	createStartMenu();
 }
@@ -488,13 +488,13 @@ dots.loop = function() {
 					+ dots.score;
 			document.getElementById("highScoreHeading").innerHTML = "High Score: "
 					+ dots.highScore;
-			
+
 			$('#gameOverModal').modal({
 				backdrop : 'static',
 				keyboard : false
 			});
 			$('#gameOverModal').modal('show');
-			
+
 		}
 	}
 };

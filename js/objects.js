@@ -277,10 +277,10 @@ function createStartMenu() {
 	//btnEditUsername.appendChild(btnEditUsernameText);
 
 	btnGroup.appendChild(btnPlay);
-	btnGroup.appendChild(btnStats);
+//	btnGroup.appendChild(btnStats);
 
 	btnPlay.appendChild(btnPlayText);
-	btnStats.appendChild(btnStatsText);
+//	btnStats.appendChild(btnStatsText);
 
 	mainPage.appendChild(usernameGroup);
 	mainPage.appendChild(title);
