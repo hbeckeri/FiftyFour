@@ -156,7 +156,32 @@ p,div {
 	border: none;
 	outline: none;
 }
-
+#statBtnGroup {
+	width: 90%;
+	left:  5%;
+	margin-top: 5%;
+}
+#tablediv {
+	width: 100%;
+	top: 20%;
+}
+#table {
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+}
+#allbtn {
+	width: 25%;
+}
+#daybtn {
+	width: 25%;
+}
+#weekbtn {
+	width: 25%;
+}
+#monthbtn {
+	width: 25%;
+}
 #btnStats {
 	width: 50%;
 	font-size: 400%;
@@ -164,7 +189,20 @@ p,div {
 	border: none;
 	background: transparent;
 }
-
+#btnStats {
+	width: 50%;
+	font-size: 400%;
+	background: transparent;
+	border: none;
+	background: transparent;
+}
+#btnBack {
+	width: 10%;
+}
+#backDiv {
+	top: 1%;
+	left: 1%;
+}
 #scoreHeading {
 	text-align: center;
 }
