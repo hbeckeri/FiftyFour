@@ -204,6 +204,9 @@ var dots = {
 	measureScore : null,
 	measureHigh : null,
 	audio: null,
+	audio2: null,
+	audio3: null,
+	audio4: null,
 
 	// canvas
 	canvas : null,
@@ -244,7 +247,13 @@ dots.init = function() {
 
 	// game variables
 	dots.nextBubble = 120;
-	dots.audio = new Audio('button-3.wav');
+	dots.audio = new Audio('button-3.mp3');
+	dots.audio.play();
+	setTimeout(function(){
+	 dots.audio.pause();
+	},1);
+	dots.audio2 = new Audio('button-11.wav');
+	dots.audio3 = new Audio('button-2.wav');
 	dots.nextColor = Math.round(Math.random() * 3);
 	dots.scoreWidth = 0;
 	dots.highWidth = 0;
@@ -624,23 +633,32 @@ dots.player = function() {
 		if (this.x > dots.WIDTH - (this.r + 4)) {
 			this.x = dots.WIDTH - (this.r + 4);
 			this.vx = (-9 / 10) * (this.vx);
+			dots.audio2.play();
 		}
 		// left
 		else if (this.x < this.r) {
 			this.x = this.r;
 			this.vx = (-9 / 10) * (this.vx);
+			dots.audio2.play();
 		}
 		// top
 		else if (this.y < this.r + ((1 / 14) * dots.HEIGHT)) {
 			this.y = this.r + 1 + ((1 / 14) * (dots.HEIGHT));
 			this.vy = (-6 / 10) * (this.vy);
+			dots.audio2.play();
 
 		}
 		// bottom
 		else if (this.y > (dots.HEIGHT) - (this.r + 4)) {
 			// console.log("here");
+			var i = 0;
 			if (this.x <= 70 || this.x >= dots.WIDTH - 70) {
 				this.vy = 45;
+				dots.audio3.play();
+				i = 1;
+			}
+			if (i === 0) {
+				dots.audio2.play();
 			}
 			this.y = dots.HEIGHT - (this.r + 4);
 			this.vy = (-6 / 10) * (this.vy);
