@@ -6,7 +6,7 @@
 /*global $:false, intel:false app:false, dev:false, cordova:false */
 var btnPressed;
 var body;
-var mainPage, btnGroup, btnPlay, btnSettings, btnStats, btnStats, btnBack;
+var mainPage, leadPage, btnGroup, btnPlay, btnSettings, btnStats, btnBack;
 var canvas;
 var btnPlayText, btnSettingsText, btnStatsText;
 var table, tableHead, tableBody, trh, tr1, tr2, tr3, tr4, tr5, tr6, tr7,
@@ -74,9 +74,11 @@ function createObjects() {
 	tdN10 = document.createElement("td");
 	tdU10 = document.createElement("td");
 	tdS10 = document.createElement("td");
+	
 	usernameGroup = document.createElement("div");
 	backDiv = document.createElement("div");
 	btnEditUsername = document.createElement("button");
+	btnBack = document.createElement("button");
 	title = document.createElement("h1");
 	btnGroup = document.createElement("div");
 	statBtnGroup = document.createElement("div");
@@ -90,11 +92,12 @@ function createObjects() {
 	// game DOM
 	gamePage = document.createElement("div");
 	canvas = document.createElement("canvas");
+	// TODO add ad DOM
 
 	// DOM id's
 	mainPage.setAttribute("id", "mainpage");
 	leadPage.setAttribute("id", "leadpage");
-	usernameGroup.setAttribute("id", "usernameGroup
+	usernameGroup.setAttribute("id", "usernameGroup");
 	backDiv.setAttribute("id", "usernameGroup");
 	btnEditUsername.setAttribute("id", "btnEditUsername");
 	title.setAttribute("id", "title");
@@ -103,21 +106,24 @@ function createObjects() {
 	statBtnGroup.setAttribute("id", "statBtnGroup");
 	tableDiv.setAttribute("id", "tablediv");
 	table.setAttribute("id", "table");
+	tableHead.setAttribute("id", "tablehead");
+	tableBody.setAttribute("id", "tableBody");
 	btnPlay.setAttribute("id", "btnPlay");
 	btnStats.setAttribute("id", "btnStats");
 	gamePage.setAttribute("id", "gamePage");
-	canvas.setAttribute("id", "myCanvas
+	canvas.setAttribute("id", "myCanvas");
 	allBtn.setAttribute("id", "allbtn");
 	dayBtn.setAttribute("id", "daybtn");
 	weekBtn.setAttribute("id", "weekbtn");
 	monthBtn.setAttribute("id", "monthbtn");
 
-	usernameGroup.setAttribute("class", "btn-group
+	usernameGroup.setAttribute("class", "btn-group");
 	backDiv.setAttribute("class", "btn-group");
 	mainPage.setAttribute("class", "upage vertical-col left");
 	leadPage.setAttribute("class", "upage vertical-col left");
 	btnEditUsername.setAttribute("class", "btn btn-default");
 	btnGroup.setAttribute("class", "btn-group");
+	statBtnGroup.setAttribute("class", "btn-group");
 	btnPlay.setAttribute("class", "btn btn-default");
 	allBtn.setAttribute("class", "btn btn-default");
 	dayBtn.setAttribute("class", "btn btn-default");
@@ -134,6 +140,7 @@ function createObjects() {
 	tr5.setAttribute("class", "active");
 	tr7.setAttribute("class", "active");
 	tr9.setAttribute("class", "active");
+	
 
 	// btnGroup.setAttribute("data-uib", "twitter%20bootstrap/button_group");
 	// btnPlay.setAttribute("data-uib", "twitter%20bootstrap/button");
@@ -230,10 +237,11 @@ function createObjects() {
 	tr10.appendChild(tdS10);
 	tableBody.appendChild(tr10);
 	
-	btnPlay.setAttribute("onclick", "playDots
+
+	btnPlay.setAttribute("onclick", "playDots()");
 	btnStats.setAttribute("onclick", "openStats()");
 	btnBack.setAttribute("onclick", "goBack()");
-	btnEditUsername.setAttribute("onClick", "editUsername
+	btnEditUsername.setAttribute("onClick", "editUsername()");
 	btnBack.appendChild(document.createTextNode("Back"));
 
 	btnEditUsernameText = document.createElement("i");
