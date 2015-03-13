@@ -248,10 +248,6 @@ dots.init = function() {
 	// game variables
 	dots.nextBubble = 120;
 	dots.audio = new Audio('button-3.mp3');
-	dots.audio.play();
-	setTimeout(function(){
-	 dots.audio.pause();
-	},1);
 	dots.audio2 = new Audio('button-11.wav');
 	dots.audio3 = new Audio('button-2.wav');
 	dots.nextColor = Math.round(Math.random() * 3);
