@@ -44,7 +44,6 @@ viewport {
 
 <!---------------------- Cocoon (real nigga)--------------------->
 <script src="js/cocoon.js"></script>
-
 <script src="js/cookies.js"></script>
 <script src="js/objects.js"></script>
 <script src="js/app.js"></script>
@@ -62,7 +61,6 @@ body {
 	margin: 0;
 	padding: 0;
 	background-image: url("photos/background3.png");
-	
 }
 
 canvas {
@@ -79,6 +77,7 @@ canvas {
 
 	<script>
 		Cocoon.Ad.loadBanner();
+		Cocoon.Ad.loadInterstitial();
 		createObjects();
 		createStartMenu();
 		function playDots() {
@@ -147,8 +146,10 @@ canvas {
 					</div>
 					<h5>Tutorial</h5>
 					<div class="btn-group">
-						<button class="btn btn-success" id="tutorialOn" onclick="toggleTutorial()">On</button>
-						<button class="btn btn-danger" id="tutorialOff" onclick="toggleTutorial()">Off</button>
+						<button class="btn btn-success" id="tutorialOn"
+							onclick="toggleTutorial()">On</button>
+						<button class="btn btn-danger" id="tutorialOff"
+							onclick="toggleTutorial()">Off</button>
 					</div>
 				</div>
 				<div class="modal-footer">
