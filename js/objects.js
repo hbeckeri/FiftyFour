@@ -14,7 +14,7 @@ tr8, tr9, tr10, thN, thU, thS, trY, tdNY, tdUY, tdUS;
 var tdN1, tdU1, tdS1, tdN2, tdU2, tdS2, tdN3, tdU3, tdS3, 
 tdN4, tdU4, tdS4, tdN5, tdU5, tdS5, tdN6, tdU6, tdS6, tdN7, tdU7,
 tdS7, tdN8, tdU8, tdS8, tdN9, tdU9, tdS9, tdN10, tdU10, tdS10;
-var allBtn, dayBtn, weekBtn, monthBtn, statBtnGroup, tableDiv; backDiv;
+var allBtn, dayBtn, weekBtn, monthBtn, statBtnGroup, tableDiv, backDiv;
 
 function createObjects() {
 	// Main Elements
@@ -94,25 +94,25 @@ function createObjects() {
 	// DOM id's
 	mainPage.setAttribute("id", "mainpage");
 	leadPage.setAttribute("id", "leadpage");
-	usernameGroup.setAttribute("id", "usernameGroup
+	usernameGroup.setAttribute("id", "usernameGroup");
 	backDiv.setAttribute("id", "usernameGroup");
 	btnEditUsername.setAttribute("id", "btnEditUsername");
 	title.setAttribute("id", "title");
 	btnGroup.setAttribute("id", "btnGroup");
-	btnBack.setAttribute("id", "btnBack")
+	btnBack.setAttribute("id", "btnBack");
 	statBtnGroup.setAttribute("id", "statBtnGroup");
 	tableDiv.setAttribute("id", "tablediv");
 	table.setAttribute("id", "table");
 	btnPlay.setAttribute("id", "btnPlay");
 	btnStats.setAttribute("id", "btnStats");
 	gamePage.setAttribute("id", "gamePage");
-	canvas.setAttribute("id", "myCanvas
+	canvas.setAttribute("id", "myCanvas");
 	allBtn.setAttribute("id", "allbtn");
 	dayBtn.setAttribute("id", "daybtn");
 	weekBtn.setAttribute("id", "weekbtn");
 	monthBtn.setAttribute("id", "monthbtn");
 
-	usernameGroup.setAttribute("class", "btn-group
+	usernameGroup.setAttribute("class", "btn-group");
 	backDiv.setAttribute("class", "btn-group");
 	mainPage.setAttribute("class", "upage vertical-col left");
 	leadPage.setAttribute("class", "upage vertical-col left");
@@ -230,10 +230,10 @@ function createObjects() {
 	tr10.appendChild(tdS10);
 	tableBody.appendChild(tr10);
 	
-	btnPlay.setAttribute("onclick", "playDots
+	btnPlay.setAttribute("onclick", "playDots");
 	btnStats.setAttribute("onclick", "openStats()");
 	btnBack.setAttribute("onclick", "goBack()");
-	btnEditUsername.setAttribute("onClick", "editUsername
+	btnEditUsername.setAttribute("onClick", "editUsername");
 	btnBack.appendChild(document.createTextNode("Back"));
 
 	btnEditUsernameText = document.createElement("i");
