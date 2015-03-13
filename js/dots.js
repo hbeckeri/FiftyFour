@@ -247,9 +247,9 @@ dots.init = function() {
 
 	// game variables
 	dots.nextBubble = 120;
-	dots.audio = new Audio('button-3.mp3');
-	dots.audio2 = new Audio('button-11.wav');
-	dots.audio3 = new Audio('button-2.wav');
+	dots.audio = new Audio('audio/button-3.mp3');
+	dots.audio2 = new Audio('audio/button-11.wav');
+	dots.audio3 = new Audio('audio/button-2.wav');
 	dots.nextColor = Math.round(Math.random() * 3);
 	dots.scoreWidth = 0;
 	dots.highWidth = 0;
