@@ -15,10 +15,15 @@ var tdN1, tdU1, tdS1, tdN2, tdU2, tdS2, tdN3, tdU3, tdS3,
 tdN4, tdU4, tdS4, tdN5, tdU5, tdS5, tdN6, tdU6, tdS6, tdN7, tdU7,
 tdS7, tdN8, tdU8, tdS8, tdN9, tdU9, tdS9, tdN10, tdU10, tdS10;
 var allBtn, dayBtn, weekBtn, monthBtn, statBtnGroup, tableDiv; backDiv;
+var audioId;
 
 function createObjects() {
+	audioId = document.createElement("audio");
+	audioId.setAttribute("id", "audiotag1");
+	audioId.setAttribute()
 	// Main Elements
 	body = document.getElementById("body");
+	
 	// starup DOM
 	mainPage = document.createElement("div");
 	leadPage = document.createElement("div");

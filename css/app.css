@@ -66,14 +66,7 @@ body #editUsernameModal {
 	font-family: "Exo";
 	src: local('Exo-Regular.otf'), url('exo/Exo-Regular.otf');
 }
-@font-face {
-	font-family: "Arrow";
-	src: url('arrows/PWNewArrows.ttf');
-}
-@font-face {
-	font-family: "Hand";
-	src: url('handwriting/Note_this.ttf');
-}
+
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Exo';
 }
@@ -130,8 +123,8 @@ p,div {
 	top: 1%;
 	left: 1%;
 }
-#btnUpdateUsername{
-	border: none;
+#btnUpdateUsername {
+	width: 50%;
 }
 #btnCancelUsername {
 	width: 50%;
@@ -170,6 +163,12 @@ p,div {
 	width: 90%;
 	margin-left: 5%;
 }
+#tableHead {
+	top: 20%;
+}
+#tableBody {
+	top: 20%;
+}
 #allbtn {
 	width: 25%;
 }
@@ -182,13 +181,7 @@ p,div {
 #monthbtn {
 	width: 25%;
 }
-#btnStats {
-	width: 50%;
-	font-size: 400%;
-	background: transparent;
-	border: none;
-	background: transparent;
-}
+
 #btnStats {
 	width: 50%;
 	font-size: 400%;

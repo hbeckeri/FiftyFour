@@ -5,31 +5,21 @@
 /*jslint browser:true, devel:true, white:true, vars:true */
 /*global $:false, intel:false app:false, dev:false, cordova:false */
 
-var hidden, visibilityChange;
-if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18
-												// and later support
-	hidden = "hidden";
-	visibilityChange = "visibilitychange";
+var hidden, visibilityChange; 
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
 } else if (typeof document.mozHidden !== "undefined") {
-	hidden = "mozHidden";
-	visibilityChange = "mozvisibilitychange";
+  hidden = "mozHidden";
+  visibilityChange = "mozvisibilitychange";
 } else if (typeof document.msHidden !== "undefined") {
-	hidden = "msHidden";
-	visibilityChange = "msvisibilitychange";
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
 } else if (typeof document.webkitHidden !== "undefined") {
-	hidden = "webkitHidden";
-	visibilityChange = "webkitvisibilitychange";
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
 }
-Cocoon.Ad.banner.on("shown", function() {
-	console.log("Banner shown!");
-});
-Cocoon.Ad.banner.on("ready", function() {
-	Cocoon.Ad.setBannerLayout(Cocoon.Ad.BannerLayout.BOTTOM_CENTER);
-	Cocoon.Ad.showBanner();
-});
-Cocoon.Ad.banner.on("hidden", function() {
-	console.log("Banner hidden!");
-});
+
 
 function gameClickEvent(event) {
 	if (!dots.gameOver) {
@@ -51,7 +41,7 @@ function addDotsListeners() {
 		window.addEventListener("click", gameClickEvent, false);
 	}
 	document.addEventListener(visibilityChange, handleVisibilityChange, false);
-
+    
 }
 
 function removeDotsListeners() {
@@ -60,8 +50,7 @@ function removeDotsListeners() {
 	} else {
 		window.removeEventListener("click", gameClickEvent, false);
 	}
-	document.removeEventListener(visibilityChange, handleVisibilityChange,
-			false);
+	document.removeEventListener(visibilityChange, handleVisibilityChange, false);
 }
 
 function addHomeListeners() {
@@ -78,6 +67,6 @@ function addHomeListeners() {
 
 function handleVisibilityChange() {
 	if (document[hidden]) {
-		pauseDots();
+	    pauseDots();
 	}
 }

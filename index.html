@@ -44,11 +44,13 @@ viewport {
 
 <!---------------------- Cocoon (real nigga)--------------------->
 <script src="js/cocoon.js"></script>
+<script src="js/device/cocoon_device.js"></script>
+
 <script src="js/cookies.js"></script>
 <script src="js/objects.js"></script>
 <script src="js/app.js"></script>
 <script src="js/dots.js"></script>
-<script src="js/fastclick.js"</script>
+<script src="js/fastclick.js"></script>
 <script src="js/debug.js"></script>
 <script src="js/init-app.js"></script>
 <script src="xdk/init-dev.js"></script>
@@ -60,7 +62,7 @@ viewport {
 body {
 	margin: 0;
 	padding: 0;
-	background-image: url("photos/background3.png");
+	background-image: url("photos/background.png");
 }
 
 canvas {
@@ -76,8 +78,6 @@ canvas {
 <body id="body">
 
 	<script>
-		Cocoon.Ad.loadBanner();
-		Cocoon.Ad.loadInterstitial();
 		createObjects();
 		createStartMenu();
 		function playDots() {
@@ -105,10 +105,10 @@ canvas {
 				</div>
 				<div class="modal-body">
 					<div class="btn-group-vertical" id="pauseModalBtnGroup">
-						<button type="button" id="btnResume"
-							class="btn btn-default appModalBtn" onclick="resumeDots()")>Resume</button>
-						<button type="button" id="btnQuit"
-							class="btn btn-primary appModalBtn" onClick="stopDots()">Quit</button>
+						<button type="button" id="btnResume" class="btn btn-default appModalBtn"
+							onclick="resumeDots()")>Resume</button>
+						<button type="button" id="btnQuit" class="btn btn-primary appModalBtn"
+							onClick="stopDots()">Quit</button>
 					</div>
 				</div>
 			</div>
@@ -126,10 +126,10 @@ canvas {
 					<h4 id="scoreHeading"></h4>
 					<h4 id="highScoreHeading"></h4>
 					<div class="btn-group-vertical" id="gameOverModalBtnGroup">
-						<button type="button" id="btnReplay"
-							class="btn btn-default appModalBtn" onClick="restartDots()">Replay</button>
-						<button type="button" id="btnQuit"
-							class="btn btn-primary appModalBtn" onClick="stopDots()">Quit</button>
+						<button type="button" id="btnReplay" class="btn btn-default appModalBtn"
+							onClick="restartDots()">Replay</button>
+						<button type="button" id="btnQuit" class="btn btn-primary appModalBtn"
+							onClick="stopDots()">Quit</button>
 					</div>
 				</div>
 			</div>
@@ -141,35 +141,27 @@ canvas {
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title dotsModalTitle" id="Label">User</h4>
+					<h4 class="modal-title dotsModalTitle" id="Label">Edit
+						Username</h4>
 				</div>
 				<div class="modal-body dotsModalText">
-					<h5 id="gamesPlayed"></h5>
-					<h5 id="highScore"></h5>
-					<h5 id="averageScore"></h5>
-					<div class="form-group" id="editUsernameFormGroup">
-						<label class="control-label" id="usernameLabel">Username</label> <input
-							type="text" class="form-control" id="usernameInput"
-							onkeyup="updateUsername()"></input>
+					<div class="form-group">
+						<label class="control-label" for="inputDefault">Enter New
+							Username</label> <input type="text" class="form-control"
+							id="usernameInput">
 					</div>
-					<h5>Tutorial</h5>
-					<div class="btn-group">
-						<button class="btn btn-success" id="tutorialOn"
-							onclick="toggleTutorial()">On</button>
-						<button class="btn btn-danger" id="tutorialOff"
-							onclick="toggleTutorial()">Off</button>
-					</div>
-				</div>
-				<div class="modal-footer">
 					<div class="btn-group" id="editUsernameModalBtnGroup">
+						<button type="button" id="btnUpdateUsername"
+							class="btn btn-default appModalBtn" onClick="updateUsername()">Submit</button>
 						<button type="button" id="btnCancelUsername"
-							class="btn btn-primary appModalBtn"
-							onClick="cancelEditUsername()">Close</button>
+							class="btn btn-primary appModalBtn" onClick="cancelEditUsername()">Cancel</button>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>
