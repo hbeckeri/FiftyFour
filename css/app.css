@@ -150,25 +150,24 @@ p,div {
 }
 
 #btnPlay {
-	width: 50%;
+	width: 100%;
 	font-size: 400%;
 	background: transparent;
 	border: none;
 	outline: none;
 }
 #statBtnGroup {
-	width: 90%;
-	left:  5%;
-	margin-top: 5%;
+	width: 96%;
+	left:  2%;
+	margin-top: 12%;
 }
 #tablediv {
 	width: 100%;
-	top: 20%;
 }
 #table {
 	position: relative;
-	width: 90%;
-	margin-left: 5%;
+	width: 96%;
+	margin-left: 2%;
 }
 #allbtn {
 	width: 25%;
@@ -189,15 +188,8 @@ p,div {
 	border: none;
 	background: transparent;
 }
-#btnStats {
-	width: 50%;
-	font-size: 400%;
-	background: transparent;
-	border: none;
-	background: transparent;
-}
 #btnBack {
-	width: 10%;
+	width: 20%;
 }
 #backDiv {
 	top: 1%;
