@@ -12,7 +12,8 @@ $playerUsername = $_POST["username"];
 $highScore = $_POST["highScore"];
 $score = $_POST["score"];
 $uuid = $_POST["uuid"];
-
+$gamesPlayed = $_POST["gamesPlayed"];
+$averageScore = $_POST["averageScore"];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,8 +30,8 @@ $stmt->bind_param("s", $uuid);
 $stmt->execute();
 $stmt->store_result();
 if ($stmt->num_rows == 0) {
-	$stmt = $conn->prepare("INSERT INTO `FiftyFour`.`Scores` (`uuid`, `username`, `high`, `timeOfLastPlayed`) VALUES (?, ?, ?, CURRENT_TIMESTAMP)");
-	$stmt->bind_param("ssi",$uuid, $playerUsername, $highScore);
+	$stmt = $conn->prepare("INSERT INTO `FiftyFour`.`Scores` (`uuid`, `username`, `high`, `timeOfLastPlayed`, `totalPlayed`, `AverageScore`) VALUES (?, ?, ?, CURRENT_TIMESTAMP, ?, ?)");
+	$stmt->bind_param("ssiid",$uuid, $playerUsername, $highScore, $gamesPlayed, $averageScore);
 	$stmt->execute();
 } 
 
@@ -89,9 +90,9 @@ $stmt->execute();
 $stmt = $conn->prepare("UPDATE `Scores` SET `timeOfMonthlyHigh`=0, `monthlyHigh`=0 WHERE TIMESTAMPDIFF(MONTH, `timeOfMonthlyHigh`, NOW()) > 1;");
 $stmt->execute();
 
-//updates high, username, totalPlayed, and lastPlayed
-$stmt = $conn->prepare("UPDATE `Scores` SET `username` = ?, `high`= ?, `totalPlayed` = `totalPlayed` + 1, `timeOfLastPlayed` = CURRENT_TIMESTAMP WHERE  `uuid` = ?");
-$stmt->bind_param("sis", $playerUsername, $highScore, $uuid);
+//updates high, username, totalPlayed, lastPlayed and AverageScore
+$stmt = $conn->prepare("UPDATE `Scores` SET `username` = ?, `high`= ?, `totalPlayed` = ?, `timeOfLastPlayed` = CURRENT_TIMESTAMP, `AverageScore` = ? WHERE  `uuid` = ?");
+$stmt->bind_param("siids", $playerUsername, $highScore, $gamesPlayed, $averageScore, $uuid);
 $stmt->execute();
 
 echo "New records created successfully";
