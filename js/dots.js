@@ -27,6 +27,7 @@ function startDots() {
 	}
 	dots.init();
 }
+
 function stopDots() {
 	// Cocoon.Ad.showInterstitial();
 
@@ -203,10 +204,15 @@ var dots = {
 	highWidth : null,
 	measureScore : null,
 	measureHigh : null,
-	audio: null,
-	audio2: null,
-	audio3: null,
-	audio4: null,
+	audioJump : null,
+	audioHitWallRight : null,
+	audioHitWallTop : null,
+	audioHitWallBottom : null,
+	audioHitWallLeft : null,
+	audioJumpBoost : null,
+	audioCollision : null,
+	audioCountdown : null,
+	countdownVar : null,
 
 	// canvas
 	canvas : null,
@@ -247,9 +253,14 @@ dots.init = function() {
 
 	// game variables
 	dots.nextBubble = 120;
-	dots.audio = new Audio('audio/button-3.mp3');
-	dots.audio2 = new Audio('audio/button-11.wav');
-	dots.audio3 = new Audio('audio/button-2.wav');
+	dots.audioJump = new Audio('audio/jump.wav');
+	dots.audioHitWallTop = new Audio('audio/hitWallTop.wav');
+	dots.audioHitWallBottom = new Audio('audio/hitWallBottom.wav');
+	dots.audioHitWallRight = new Audio('audio/hitWallRight.wav');
+	dots.audioHitWallLeft = new Audio('audio/hitWallLeft.wav');
+	dots.audioJumpBoost = new Audio('audio/jumpBoost.wav');
+	dots.audioCollision = new Audio('audio/collide.wav');
+	dots.audioCountdown = new Audio('audio/countdown.wav');
 	dots.nextColor = Math.round(Math.random() * 3);
 	dots.scoreWidth = 0;
 	dots.highWidth = 0;
@@ -258,6 +269,7 @@ dots.init = function() {
 	if (getCookie("showTutorial") === "") {
 		setCookie("showTutorial", "true");
 	}
+	dots.countdownVar = 4;
 	// canvas
 	dots.canvas = document.getElementById("myCanvas");
 	dots.ctx = dots.canvas.getContext("2d");
@@ -364,6 +376,7 @@ dots.update = function() {
 				});
 			}
 			if (hit) {
+				dots.audioCollision.play();
 				dots.lives -= 1;
 				if (dots.lives <= 0) {
 					dots.gameOver = true;
@@ -385,6 +398,7 @@ dots.update = function() {
 	} else {
 		if (dots.nextBubble < 0) {
 			dots.gameStarted = true;
+			dots.audioCountdown.play();
 			dots.nextBubble = 50;
 		}
 	}
@@ -403,8 +417,10 @@ dots.render = function() {
 		player.render();
 		if (dots.nextBubble > 40) {
 			// numbers
-			dots.draw.text(Math.round(dots.nextBubble / 40),
-					(dots.WIDTH / 2) - 30, ((dots.HEIGHT) / 4), 90, '#fff');
+			if (dots.countdownVar > Math.round(dots.nextBubble / 40)) {
+				dots.countdownVar = Math.round(dots.nextBubble / 40);
+			}
+			dots.draw.text (Math.round(dots.nextBubble / 40), (dots.WIDTH / 2) - 30, ((dots.HEIGHT) / 4), 90, '#fff');
 			if (getCookie("showTutorial") === "true") {
 				dots.draw.rect((dots.WIDTH / 2) + 1, 0, 2, dots.HEIGHT,
 						'#7E858B');
@@ -608,13 +624,13 @@ dots.player = function() {
 
 	this.update = function() {
 		if (dots.input.tapped) {
-			dots.audio.play();
+			dots.audioJump.play();
 			if (this.vy > 10) {
 				this.vy = -13;
 			} else {
 				this.vy = -20;
 			}
-			dots.input.tapped = false;
+			dots.input.tapped = false
 			if (dots.input.x < dots.WIDTH / 2) {
 				this.vx = -10;
 			} else if (dots.input.x > (dots.WIDTH / 2)) {
@@ -627,34 +643,31 @@ dots.player = function() {
 		}
 		// right
 		if (this.x > dots.WIDTH - (this.r + 4)) {
+			dots.audioHitWallRight.play();
 			this.x = dots.WIDTH - (this.r + 4);
 			this.vx = (-9 / 10) * (this.vx);
-			dots.audio2.play();
 		}
 		// left
 		else if (this.x < this.r) {
+			dots.audioHitWallLeft.play();
 			this.x = this.r;
 			this.vx = (-9 / 10) * (this.vx);
-			dots.audio2.play();
 		}
 		// top
 		else if (this.y < this.r + ((1 / 14) * dots.HEIGHT)) {
+			dots.audioHitWallTop.play();
 			this.y = this.r + 1 + ((1 / 14) * (dots.HEIGHT));
 			this.vy = (-6 / 10) * (this.vy);
-			dots.audio2.play();
-
 		}
 		// bottom
 		else if (this.y > (dots.HEIGHT) - (this.r + 4)) {
 			// console.log("here");
-			var i = 0;
 			if (this.x <= 70 || this.x >= dots.WIDTH - 70) {
+				dots.audioJumpBoost.play();
 				this.vy = 45;
-				dots.audio3.play();
-				i = 1;
 			}
-			if (i === 0) {
-				dots.audio2.play();
+			if (this.vy > 1) {
+				dots.audioHitWallBottom.play();
 			}
 			this.y = dots.HEIGHT - (this.r + 4);
 			this.vy = (-6 / 10) * (this.vy);
